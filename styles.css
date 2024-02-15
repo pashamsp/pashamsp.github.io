@@ -8129,7 +8129,7 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color: (var(--bs-purple), var(--bs-bg-opacity)) !important;
+  background-color: var(--bs-lavender) !important;
 }
 
 .bg-secondary {
