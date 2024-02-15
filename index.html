@@ -279,7 +279,7 @@
                         fetch('https://v2.jokeapi.dev/joke/Any')
                             .then(response => response.json())
                             .then(data => {
-                                const joke = data.type === 'single' ? data.joke : `${data.setup}<br>${data.delivery}`;
+                                const joke = data.type === 'single' ? data.joke : '${data.setup}<br>${data.delivery}';
                                 document.getElementById('joke').innerHTML = joke;
                             })
                             .catch(error => {
@@ -299,7 +299,7 @@
                     const apiKey = '03c590731d9a4909921c960e8301536e';
 
                     function getLatestNews() {
-                        const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+                        const apiUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}';
 
                         fetch(apiUrl)
                             .then(response => response.json())
@@ -313,12 +313,12 @@
                                 data.articles.forEach(article => {
                                     const newsItem = document.createElement("div");
                                     newsItem.classList.add("news-item");
-                                    newsItem.innerHTML = `
+                                    newsItem.innerHTML = '
                                         <h2>${article.title}</h2>
                                         <p>${article.description}</p>
                                         <img src="${article.urlToImage}" alt="${article.title}" style="max-width: 100%;">
                                         <a href="${article.url}" target="_blank">Read more</a>
-                                    `;
+                                    ';
                                     newsListElement.appendChild(newsItem);
                                 });
                             })
