@@ -10,24 +10,14 @@
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="styles.css" rel="stylesheet" />
     <style>
-        .comic-container {
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-	<style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -42,21 +32,21 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
+        .comic-container {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-<!--     <script>
-        window.onload = function() {
-            alert("Welcome to my page");
-        };
-    </script> -->
     <div id="greeting-root"></div>
-		<script src="greetings.js"></script>
+    <script src="greetings.js"></script>
     <div id="greetingCookie">Hello</div>
-<!--      <div id="root"></div>
-    <script src="react.js"></script> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-block d-lg-none">Sai Sandeep Pasham</span>
@@ -250,7 +240,7 @@
                      </ul>
                 </div>
         </section>
-        <!--miscellaneous-->
+       <!--miscellaneous-->
         <section class="resume-section" id="miscellaneous">
             <div class="resume-section-content">
                 <h2 class="mb-5">Miscellaneous</h2>
@@ -260,6 +250,7 @@
                         document.getElementById('digit-clock').innerHTML = "Current time:" + new Date();
                     }
                     setInterval(displayTime, 500);
+
                     function validateInput(inputId) {
                         var input = document.getElementById(inputId).value;
                         if (input.length === 0) {
@@ -268,88 +259,76 @@
                         }
                         return true;
                     }
+
                     function encodeInput(input) {
                         const encodedData = document.createElement('div');
                         encodedData.innerText = input;
                         return encodedData.innerHTML;
                     }
-
                 </script>
                 <div id="email" onclick="showhideEmail()">My Email</div>
                 <a href="/waph.html">Course Link</a>
-                <!--  <script src="https://waph-uc.github.io/clock.js"></script> -->
                 <div>
                     <canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
-
                 </div>
                 <b>Joke &#x1F604;</b>
                 <div id="joke"></div>
-                
+
                 <script>
-                
-                    // Function to fetch and display a joke
                     function fetchJoke() {
                         fetch('https://v2.jokeapi.dev/joke/Any')
                             .then(response => response.json())
                             .then(data => {
-                                // Check if the joke is a single joke or a setup and delivery
                                 const joke = data.type === 'single' ? data.joke : `${data.setup}<br>${data.delivery}`;
-                                // Display the joke
                                 document.getElementById('joke').innerHTML = joke;
                             })
                             .catch(error => {
                                 console.error('Error fetching joke:', error);
                             });
                     }
-            
-                    // Fetch a joke immediately when the page loads
-                    fetchJoke();
-            
-                    // Fetch a new joke every 1 minute
+
                     setInterval(fetchJoke, 60000);
                 </script>
-                 const apiKey = '03c590731d9a4909921c960e8301536e'; // Replace with your News API key
 
-         function getLatestNews() {
-            const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+                <div id="news-container">
+                    <h1>Latest News</h1>
+                    <div id="news-list"></div>
+                </div>
 
-           fetch(apiUrl)
-              .then(response => response.json())
-              .then(data => {
-                const newsListElement = document.getElementById("news-list");
+                <script>
+                    const apiKey = '03c590731d9a4909921c960e8301536e';
 
-                // Clear previous news
-                newsListElement.innerHTML = '';
+                    function getLatestNews() {
+                        const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
-                // Display the latest news
-                data.articles.forEach(article => {
-                    const newsItem = document.createElement("div");
-                    newsItem.classList.add("news-item");
-                    newsItem.innerHTML = `
-                        <h2>${article.title}</h2>
-                        <p>${article.description}</p>
-                        <img src="${article.urlToImage}" alt="${article.title}" style="max-width: 100%;">
-                        <a href="${article.url}" target="_blank">Read more</a>
-                    `;
-                    newsListElement.appendChild(newsItem);
-                });
-            })
-            .catch(error => console.error("Error fetching news:", error));
-    }
+                        fetch(apiUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                const newsListElement = document.getElementById("news-list");
 
-    // Initial load
-    getLatestNews();
-             
-                </script>          
-            <div id="news-container">
-    <h1>Latest News</h1>
-    <div id="news-list"></div>
-</div>
+                                // Clear previous news
+                                newsListElement.innerHTML = '';
 
+                                // Display the latest news
+                                data.articles.forEach(article => {
+                                    const newsItem = document.createElement("div");
+                                    newsItem.classList.add("news-item");
+                                    newsItem.innerHTML = `
+                                        <h2>${article.title}</h2>
+                                        <p>${article.description}</p>
+                                        <img src="${article.urlToImage}" alt="${article.title}" style="max-width: 100%;">
+                                        <a href="${article.url}" target="_blank">Read more</a>
+                                    `;
+                                    newsListElement.appendChild(newsItem);
+                                });
+                            })
+                            .catch(error => console.error("Error fetching news:", error));
+                    }
 
+                    // Initial load
+                    getLatestNews();
+                </script>
             </div>
-            </div>
-            
         </section>
     </div>
     <!-- Google Analytics -->
