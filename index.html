@@ -293,11 +293,11 @@
                     setInterval(fetchJoke, 60000);
                 </script>
                 
-                <h3>Random NASA image</h3>
-                <img id="image" src="" alt="Random Dog Image">
+                <h3>Random cat image</h3>
+                <img id="image" src="" alt="Random cat Image">
             
                 <script>
-                    fetch('https://api.nasa.gov/planetary/apod')
+                    fetch('https://aws.random.cat/meow')
                         .then(response => response.json())
                         .then(data => {
                             const Image = document.getElementById('image');
