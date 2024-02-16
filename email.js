@@ -1,10 +1,9 @@
-var visible = false;
-function showOrHideEmail(){
-  if (visible){
-    document.getElementById('email').innerHTML=" myEmail";
-    visible=false;
-  }
-  else{
+var shown = false;
+function showhideEmail(){
+	if (shown){
+		document.getElementById('email').innerHTML = "Show my email";
+	shown= false;
+	} else{
     var myEmail="<a href='mailto:pashamsp" +"@"+
                 "mail.uc.edu'>pashamsp"+"@"+"mail.uc.edu</a>";
     document.getElementById('email').innerHTML=myEmail;
