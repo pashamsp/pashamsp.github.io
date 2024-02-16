@@ -23,7 +23,7 @@ I have customized a Bootstrap template obtained from [https://startbootstrap.com
 
 ![portfolio](images/1.png)
 
-![WAPH course](images/2.png)
+![WAPH courselink](images/2.png)
 
 ![WAPH labs and Hackathon](images/3.png)
 
