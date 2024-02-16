@@ -287,26 +287,19 @@
                 
                 <script>
                 
-                    // Function to fetch and display a joke
-                    function fetchJoke() {
-                        fetch('https://v2.jokeapi.dev/joke/Any')
-                            .then(response => response.json())
-                            .then(data => {
-                                // Check if the joke is a single joke or a setup and delivery
-                                const joke = data.type === 'single' ? data.joke : `${data.setup}<br>${data.delivery}`;
-                                // Display the joke
-                                document.getElementById('joke').innerHTML = joke;
-                            })
-                            .catch(error => {
-                                console.error('Error fetching joke:', error);
-                            });
-                    }
-            
-                    // Fetch a joke immediately when the page loads
-                    fetchJoke();
-            
-                    // Fetch a new joke every 1 minute
-                    setInterval(fetchJoke, 60000);
+                  function displayJoke(){
+		$.get("https://v2.jokeapi.dev/joke/Programming?type=single",function(result){
+				console.log("from joke API: "+ JSON.stringify(result));
+				if (result && result.joke) {
+				$("#response").text("Programming joke of the day: " +result.joke);
+				}
+				else{
+				 $("#response").text("Could not retrieve a joke at this time.");	
+				}
+			});
+		}
+		displayJoke();
+		setInterval(displayJoke,60*1000);
               
             </div>
             </div>
