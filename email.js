@@ -1,7 +1,7 @@
 var visible = false;
 function showOrHideEmail(){
   if (visible){
-    document.getElementById('email').innerHTML=" my Email";
+    document.getElementById('email').innerHTML=" myEmail";
     visible=false;
   }
   else{
